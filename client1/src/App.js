@@ -7,17 +7,14 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import axios from "axios";
-import {saveAs} from "file-saver";
-
 import { toast } from "react-toastify";
 
 //components
 
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Dashboard from "./components/Dashboard";
-import Hello from "./components/Hello";
+
+
 import Applet from "./components/Applet";
 import Logout from './components/Logout';
 
@@ -25,16 +22,7 @@ toast.configure();
 
 
 function App() {
- const  createDownloadPdf = () => {
-
-    axios.post('/create-pdf', this.state)
-    .then(() => axios.get('fetch-pdf', {responseType : 'blob'}))
-    .then((res) => {
-      const pdfBlob = new Blob([res.data], {type : ' application/pdf' });
-  
-      saveAs(pdfBlob, 'newPdf.pdf');
-    } )
-  }
+ 
   const checkAuthenticated = async () => {
     try {
       const res = await fetch("http://localhost:5000/auth/verify", {
@@ -95,28 +83,6 @@ function App() {
                   <Register {...props} setAuth={setAuth} />
                 ) : (
                   <Redirect to="/applet" />
-                )
-              }
-            />
-            <Route
-              exact
-              path="/hello"
-              render={props =>
-                isAuthenticated ? (
-                  <Hello {...props} setAuth={setAuth} />
-                ) : (
-                  <Redirect to="/login" />
-                )
-              }
-            />
-            <Route
-              exact
-              path="/dashboard"
-              render={props =>
-                isAuthenticated ? (
-                  <Dashboard {...props} setAuth={setAuth} />
-                ) : (
-                  <Redirect to="/login" />
                 )
               }
             />

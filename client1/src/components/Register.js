@@ -1,15 +1,18 @@
 import React, { Fragment, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { FormControl } from "@material-ui/core";
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 const Register = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
-    name: ""
+    name: "",
+    address:"",
+    age:""
   });
 
-  const { email, password, name } = inputs;
+  const { email, password, name, address, age } = inputs;
 
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -17,7 +20,7 @@ const Register = ({ setAuth }) => {
   const onSubmitForm = async e => {
     e.preventDefault();
     try {
-      const body = { email, password, name };
+      const body = { email, password, name ,address, age};
       const response = await fetch(
         "http://localhost:5000/auth/register",
         {
@@ -71,6 +74,24 @@ const Register = ({ setAuth }) => {
           onChange={e => onChange(e)}
           className="form-control  my-3"
         />
+       
+          <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="Minimum 3 rows" 
+
+          name="address"
+          value={address}
+          placeholder="address"
+          onChange={e => onChange(e)}
+          className="form-control my-3"
+        />
+        <input
+          type="number"
+          name="age"
+          value={age}
+          placeholder="age"
+          onChange={e => onChange(e)}
+          className="form-control my-3"
+        />
+
         <button className="btn btn-success mx-5 " onClick={onSubmitForm} >Register</button>
         <button class="btn btn-warning " ><Link to="/login"> Login</Link></button>
       

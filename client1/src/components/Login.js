@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import {GoogleLogin} from "react-google-login";
+import {FacebookLogin} from "react-facebook-login";
 const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
     email: "",
@@ -13,6 +14,14 @@ const Login = ({ setAuth }) => {
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
 
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+
+  const responseFacebook = (response) => {
+  console.log(response);
+}
+  
   const onSubmitForm = async e => {
     e.preventDefault();
     try {
@@ -65,6 +74,17 @@ const Login = ({ setAuth }) => {
         />
         <button class="btn btn-success btn-block">Submit</button>
       </form>
+    
+      <GoogleLogin
+    clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+    class = "span"
+  />
+     
+     
       <br></br>
            <button class="btn btn-warning btn-block" ><Link to="/register"> Register</Link></button>
     

@@ -140,9 +140,10 @@ const SideBars = ({ setAuth }) => {
             <MenuIcon />
             
           </IconButton>
+          <h1 className="float-center">INVOICE</h1>
           <Typography variant="h6"  noWrap>
          
-          <h1 className="float-center">INVOICE</h1>
+          
          <div className="right">
           <button class="btn btn-warning " ><Link to="/logout"> Logout</Link></button>
          </div>
