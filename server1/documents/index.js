@@ -1,5 +1,5 @@
 
-module.exports = ({ name, price1, price2, receiptId , email, address}) => {
+module.exports = ({ pname, price, item, sr ,quantity,age, email, address}) => {
     const today = new Date();
 
 
@@ -109,7 +109,7 @@ return `
     
     table .service,
     table .desc {
-      text-align: left;
+      text-align: center;
     }
     
     table td {
@@ -162,44 +162,36 @@ return `
          <div><a href="mailto:drshrutikadentinix@gmail.com">drshrutikadentinix@gmail.com</a></div>
          </div>
          <div id="project">
-         <div><span>PATIENT</span> ${name}</div>
+         <div><span>PATIENT</span> ${pname}</div>
          <div><span>ADDRESS</span> ${address}</div>
          <div><span>EMAIL</span> <a href="mailto:${email}">${email}</a></div>
          <div><span>DATE</span> ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`}</div>
          <div><span>TIME</span> ${`${today.getHours()}:${today.getMinutes()}: ${today.getSeconds()}`}</div>
-         <div><span>RECEIPT ID    </span>     ${receiptId}</div>
+         <div><span>AGE</span>${age} </div>
          </div>
       </header>
       <main>
-         <table>
+         <table style="text:center">
          <thead>
             <tr>
                <th class="service">#</th>
                <th class="desc">ITEM</th>
-               <th>PRICE</th>
-               <th>QTY</th>
-               <th>TOTAL</th>
+               <th class ="unit">QUANTITY</th>
+               <th class="unit">PRICE</th>
+               <th class = "total">TOTAL</th>
             </tr>
          </thead>
          <tbody>
             <tr>
-               <td class="service">Root canal</td>
-               <td class="desc"></td>
-               <td class="unit">${parseFloat(price1).toFixed(2)}</td>
-               <td class="qty">2</td>
-               <td class="total"> ${parseFloat(price1 * 2).toFixed(2)} </td>
+               <td class="service">${sr}</td>
+               <td class="desc">${item}</td>
+               <td class="service">${quantity}</td>
+               <td class="service">${parseFloat(price).toFixed(2)}</td>
+               <td class="total"> ${parseFloat(price * quantity).toFixed(2)} </td>
             </tr>
             <tr>
-            <td class="service">Denture</td>
-            <td class="desc"></td>
-            <td class="unit">${parseFloat(price2).toFixed(2)}</td>
-            <td class="qty">5</td>
-            <td class="total">${parseFloat(price2 * 5).toFixed(2)}</td>
-         </tr>
-
-            <tr>
-               <td colspan="4">SUBTOTAL</td>
-               <td class="total"> ${parseFloat(price1 * 2 + price2 * 5).toFixed(2)}  </td>
+               <td colspan="4" >SUBTOTAL</td>
+               <td class="total"> ${parseFloat(price * quantity).toFixed(2)}  </td>
             </tr>
          </tbody>
          </table>

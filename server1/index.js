@@ -29,7 +29,7 @@ app.post('/create-pdf', async (req, res) => {
 
 
 
-app.get('fetch-pdf', async (req, res) => {
+app.get('/fetch-pdf', async (req, res) => {
     res.sendFile(`${__dirname}/result.pdf`)
 });
 
