@@ -7,5 +7,6 @@
 5) npm install
 6) npm start
 
-
+# PLEASE IGNORE THE SERVER1 AND CLIENT1.
+those were prototype models
  
