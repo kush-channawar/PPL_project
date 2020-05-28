@@ -1,0 +1,62 @@
+html,body {
+    margin :0;
+    background-color:#121212 !important;
+    width: auto;
+}
+.text{
+    color : black;
+}
+.bg{
+    background-color: "#242424";
+}
+.right{
+    position: absolute;
+    right:100px;
+    top:10px;
+  }
+  .white {
+      color: white;
+      
+  }
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    left: 85%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .center {
+      float:center;
+      align-self: center;
+      align-content: center;
+      align-items: center;
+  }
+ .root {
+    display: 'absolute';
+    
+  }
+  
+  .container {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left :4px;
+    width : '100%';
+  }
+    .button  {
+    align-self : "center";
+    float : "none";
+  }
+  .paper {
+    padding: 2px;
+    display: 'flex';
+    overflow: 'auto';
+    flex-direction: 'column';
+    background-color: "#444444";
+  }
+  .fixedHeight {
+    height: 240;
+  }
+  .age {
+    max-width: 3;
+    size: 3;
+  }
